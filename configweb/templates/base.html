@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="icon" href="{% static 'img/favicon.png' %} " type="image/png">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'font/bootstrap-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+</head>
+<body>
+  {% include "navbar.html" %}
+{% block beranda %}{% endblock beranda %}
+  {% include "footer.html" %}
+  <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800, 
+    });
+  </script>
+  </body>
+</html>
