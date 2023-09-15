@@ -1,0 +1,30 @@
+
+
+/*-- SHOWCASE --*/
+#showcase{
+  background: url('../img/showcase_bg.jpg');
+  height: 600px;
+  padding-top: 150px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#showcase h1{
+  padding-top: 250px;
+}
+
+
+
+/*-- PRODUCT --*/
+#product i[class^="bi"] {
+  font-size: 4rem;
+}
+
+
+/*-- Nonaktifkan XXL Breakpoint --*/
+@media (min-width: 1200px) {
+  .container {
+      max-width: 1140px;
+  }
+}

@@ -1,0 +1,54 @@
+{% extends "backend/master.html" %}
+{% load crispy_forms_tags %}
+
+{% block carausel %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4>carausel</h4>
+            {% for message in messages  %}
+                {% if message %}
+                    <div class="alert alert-success">{{message}}</div> 
+                {% endif %}
+            {% endfor %}
+            <form action="{% url 'carausel' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form | crispy}}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="row py-3">
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Judul</th>
+                        <th>keterangan</th>
+                        <th>Gambar</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in carausel  %}
+                    <tr>
+                        <th>{{c.judul}}</th>
+                        <th>{{c.keterangan}}</th>
+                        <th>
+                            {% if c.foto  %}
+                                <img src="{{c.foto.url}}" alt="" srcset="" style="height: 400px; width:600px">
+                            {% endif %}
+                        </th>
+                        <th>
+                            <a href="{% url 'editcarausel' c.id %}" class="btn btn-info">Edit</a>
+                            <a href="{% url 'deletecarausel' c.id %}" class="btn btn-danger">Hapus</a>
+                        </th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  
+{% endblock carausel %}
